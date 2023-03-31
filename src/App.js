@@ -26,16 +26,7 @@ function App() {
       } finally {
         setLoading(false);
       }
-      // try {
-      //   setLoading(true);
-      //   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchValue}`)
-      //     .then((res) => res.json())
-      //     .then((data) => setSearchData(data[0]));
-      //   setSearchValue("");
-      // } catch (err) {
-      // } finally {
-      //   setLoading(false);
-      // }
+      setSearchValue('')
     }
   };
   const handleKeyDown = (e) => {
@@ -44,9 +35,7 @@ function App() {
     }
   };
 
-  if (loading) {
-    return <Loading />;
-  }
+
 
   let errorElm;
   errorElm = (
@@ -56,15 +45,23 @@ function App() {
   );
 
   return (
-    <div className="container mx-auto">
-      <Header
-        searchData={searchData}
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        handleSearch={handleSearch}
-        handleKeyDown={handleKeyDown}
-      />
-      <Result error={error} errorElm={errorElm} searchData={searchData} />
+    <div className="container mx-auto p-4 md:p-10">
+      <div className="border bg-white px-4 py-2 my-4">
+        <h1 className="text-center font-bold text-2xl font-mono">Dictionary</h1>
+        <p className=" text-sm md:text-md text-center font-mono">
+          Find meanings and definisions for word
+        </p>
+      </div>
+      <div className="md:flex justify-between">
+        <Header
+          searchData={searchData}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          handleSearch={handleSearch}
+          handleKeyDown={handleKeyDown}
+        />
+        <Result loading={loading} error={error} errorElm={errorElm} searchData={searchData} />
+      </div>
     </div>
   );
 }

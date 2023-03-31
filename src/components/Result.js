@@ -1,20 +1,26 @@
 import React from "react";
 import Antonym from "./Antonym";
-import ResultList from "./ResultList";
+import Loading from "./Loading";
+import Meaning from "./Meaning";
 import Synonym from "./Synonym";
 
-function Result({ error, errorElm, searchData }) {
+function Result({ error, loading, errorElm, searchData }) {
+  if (loading) {
+    return <Loading />;
+  }
   return (
-    <div>
+    <div className="md:w-2/3">
       {error ? (
         errorElm
       ) : (
         <div>
           {searchData && (
             <div>
-              <ResultList searchData={searchData} />
-              <Synonym searchData={searchData} />
-              <Antonym searchData={searchData} />
+              <Meaning searchData={searchData} />
+              <div className="flex justify-start">
+                <Synonym searchData={searchData} />
+                <Antonym searchData={searchData} />
+              </div>
             </div>
           )}
         </div>
