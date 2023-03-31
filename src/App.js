@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className="container mx-auto p-4 md:p-10">
-      <div className="border bg-white px-4 py-2 my-4">
+      <div className="border bg-[#00203FFF] text-white px-4 py-2 my-4">
         <h1 className="text-center font-bold text-2xl font-mono">Dictionary</h1>
         <p className=" text-sm md:text-md text-center font-mono">
           Find meanings and definisions for word

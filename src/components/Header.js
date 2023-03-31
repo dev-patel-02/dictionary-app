@@ -30,9 +30,9 @@ function Header({
     setSounds(true);
     sound.play();
   };
-  console.log(sounds);
+
   return (
-    <div className="md:h-[300px] md:w-1/3 md:p-2 flex justify-center bg-lime-400 rounded-lg py-4">
+    <div className="md:h-[300px] md:w-1/3 md:p-2 flex justify-center bg-[#00203FFF] rounded-lg py-4">
       <div>
         <div>
           <input
@@ -47,14 +47,14 @@ function Header({
         <div className="flex justify-center ">
           <button
             onClick={handleSearch}
-            className="px-6 py-2 font-medium tracking-wide my-4 text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+            className="px-6 py-2 font-medium tracking-wide my-4 text-[#00203FFF] capitalize transition-colors duration-300 transform rounded-lg focus:outline-none focus:ring bg-[#ADEFD1FF] "
           >
             Search
           </button>
         </div>
         {searchData && (
           <div>
-            <p className="text-center text-lg py-2">
+            <p className="text-center text-lg py-2 text-white">
               Result for : <span className="font-bold">{searchData?.word}</span>
             </p>
             <p className="text-center py-1 bg-white">
